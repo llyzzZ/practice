@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#div1 .active{
+			background: yellow;
+		}
+		#div1 input{
+			width: 150px;
+		}
+		#div1 div{
+			width: 610px;
+			height: 500px;
+			background: #CCC;
+			border: 1px solid #999;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var odiv=document.getElementById('div1');
+			var abtn=odiv.getElementsByTagName('input');
+			var adiv=odiv.getElementsByTagName('div');
+			for(var i=0;i<abtn.length;i++){
+				abtn[i].index=i;
+				abtn[i].onclick=function(){
+					//alert(this.value); //this 当前发生事件的元素
+					for(var i=0;i<abtn.length;i++){
+						abtn[i].className='';
+						adiv[i].style.display='none';
+					}
+					this.className='active';
+					adiv[this.index].style.display='block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input class="active" type="button" value="javascript组成">
+		<input type="button" value="变量类型">
+		<input type="button" value="变量的作用域和闭包">
+		<input type="button" value="命名规范">
+		<br>
+		<input type="button" value="运算符">
+		<input type="button" value="程序流程控制">
+		<input type="button" value="Json">
+		<input type="button" value="函数返回值">
+		<br>
+		<input type="button" value="函数传参">
+		<input type="button" value="数组基础">
+		<input type="button" value="添加、删除元素">
+		<input type="button" value="排序、转换">
+		<div style="display: block;">
+			1.ECMAScript:解释器 翻译   几乎没有兼容性问题<br>
+			2.DOM:Document Object Model 文档(html)对象模型 ducument  有一些操作不兼容<br>
+			3.BOM:Browser Object Model 浏览器对象模型 window  没有兼容问题(完全不兼容)
+		</div>
+		<div>
+			<strong>类型：</strong>typeof运算符<br>
+			常见类型:number string boolean undefined object function(未定义)<br>
+			一个变量应该只存放一种类型的数据<br>
+			<strong>数据类型转换</strong><br>
+			显式类型转换(强制类型转换)<br>
+			parseInt() parseFloat()<br>
+			NaN的意义和检测   not a number 非数字   isNaN(a) 判断a是不是NaN<br>
+			隐式类型转换<br>
+			var a=5;<br>
+			var b='5'<br>
+			== 先转换类型 然后比较  alert(a==b); ture<br>
+			=== 不转换类型 直接比较  alert(a===b); false<br>
+			减法
+			var a='12'; <br>
+			var b='5';<br>
+			alert(a+b);  125<br>
+			alert(a-b);  7 
+		</div>
+		<div>
+			<strong>变量作用域(作用范围)</strong><br>
+			局部变量  ：只能在定义他的函数里使用<br>
+			全局变量  ：在任何地方都能使用<br>
+			<strong>什么式闭包</strong><br>
+			子函数可以在使用父函数中的局部变量<br>
+			之前一直在使用闭包
+		</div>
+		<div>
+			<strong>命名规范及必要性</strong><br>
+			可读性--能看懂<br>
+			规范性--符合规则<br>
+			<strong>匈牙利命名法</strong><br>
+			类型前缀<br>
+			<table border="1" cellspacing="0">
+				<tr>
+					<td>类型</td>
+					<td>前缀</td>
+					<td>类型</td>
+					<td>实例</td>
+				</tr>
+				<tr>
+					<td>数组</td>
+					<td>a</td>
+					<td>Array</td>
+					<td>aTtems</td>
+				</tr>
+				<tr>
+					<td>布尔值</td>
+					<td>b</td>
+					<td>Boolean</td>
+					<td>bIsComplete</td>
+				</tr>
+				<tr>
+					<td>浮点数</td>
+					<td>f</td>
+					<td>Float</td>
+					<td>fPrice</td>
+				</tr>
+				<tr>
+					<td>函数</td>
+					<td>fn</td>
+					<td>Function</td>
+					<td>fnHandler</td>
+				</tr>
+				<tr>
+					<td>整数</td>
+					<td>i</td>
+					<td>Integer</td>
+					<td>iItemCount</td>
+				</tr>
+				<tr>
+					<td>对象</td>
+					<td>o</td>
+					<td>Object</td>
+					<td>oDiv1</td>
+				</tr>
+				<tr>
+					<td>正则表达式</td>
+					<td>re</td>
+					<td>RegExp</td>
+					<td>reEmailCheck</td>
+				</tr>
+				<tr>
+					<td>字符串</td>
+					<td>s</td>
+					<td>String</td>
+					<td>sUserName</td>
+				</tr>
+				<tr>
+					<td>变体变量</td>
+					<td>v</td>
+					<td>Variant</td>
+					<td>vAnvthing</td>
+				</tr>
+			</table>
+			首字母大写
+		</div>
+		<div>
+			<strong>算数：</strong>+ 加  - 减  * 乘  / 除  % 取模(求余数)<br>
+			<strong>赋值：</strong>= += -= *= /= %=<br>
+			<strong>关系：</strong>< > <= >= == === != !==<br>
+			<strong>逻辑：</strong>&&与 ||或 ！否<br>
+			<strong>运算符优先级：</strong>括号
+		</div>
+		<div>
+			<strong>判断：</strong>if、swith、?:(三目运算符)<br>
+			<strong>循环：</strong>while、for<br>
+			<strong>跳出：</strong>break、continue<br>
+			<strong>什么是真、什么是假：</strong><br>
+			真：true、非零数字、非空字符串、非空对象<br>
+			假：false、数字零、空字符串、空对象(null)、undefined
+		</div>
+		<div>
+			<strong>什么是Json</strong> var json{a:12,b:5,c:'abc'}  json.a  josn['b']<br>
+			<strong>Json和数组：</strong>数组有.length Json没有.length<br>
+			<strong>Json和for in</strong> for(var i in json){alert(i+'是:'+json[i]);}
+		</div>
+		<div>
+			<strong>什么是函数返回值</strong><br>
+			函数的执行结果<br>
+			可以没有return<br>
+			<strong>一个函数应该只返回之中类型的值</strong>
+		</div>
+		<div>
+			<strong>可变参(不定参):</strong>arguments<br>
+			参数的个数可变，参数数组
+			<strong>例子1：求和</strong><br>
+			求所有参数的和  arguments.length arguments[i]
+			<strong>例子2：CSS函数</strong><br>
+			判断arguments.length<br>
+			给参数取名，增强可读性<br>
+			<strong>取非行间样式(不能用来设置):</strong><br>
+			obj.currentStyle[attr]  (只兼容IE)<br>
+			getComputedStyle(obj,false)[attr]  (第二个参数放什么都可以)
+		</div>
+		<div>
+			<strong>数组的使用</strong><br>
+			定义<br>
+			var arr = [12,5,8,9];<br>
+			var arr = new Array(12,5,8,9);<br>
+			没有任何差别，[]的性能略高，因为代码段<br>
+			<strong>数组的属性</strong><br>
+			length<br>
+			既可以获取，又可以设置<br>
+			例子：快速清空数组<br>
+			<strong>数组的使用原则：</strong>数组中应该只存一种类型的变量<br>
+
+		</div>
+		<div>
+			<strong>数组的方法</strong><br>
+			添加<br>
+			arr.push(元素)，从尾部添加<br>
+			arr.unshift(元素)，从头部添加<br>
+			删除<br>
+			arr.pop(),从尾部弹出<br>
+			arr.shift(),从头部弹出<br>
+			<strong>splice</strong><br>
+			splice(开始，长度，元素)<br>
+			先删除，后插入<br>
+			<strong>删除：</strong>splice(开始，长度)<br>
+			<strong>插入：</strong>splice(开始，0，元素)<br>先从开始位置删除0个元素，再添加元素<br>
+			<strong>替换：</strong>splice(开始，替换个数，元素)<br>
+		</div>
+		<div>
+			<strong>排序</strong>
+		</div>
+	</div>
+
+</body>
+</html>

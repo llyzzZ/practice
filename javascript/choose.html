@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		window.onload=function (){
+			var ochoose1=document.getElementById('choose1');
+			var ochoose2=document.getElementById('choose2');
+			var ochoose3=document.getElementById('choose3');
+			var odiv=document.getElementById('div1');
+			var ocheck=odiv.getElementsByTagName('input');
+			ochoose1.onclick=function (){
+				for(var i=0;i<ocheck.length;i++){
+					ocheck[i].checked=true;
+				}
+			}
+			ochoose2.onclick=function (){
+				for(var i=0;i<ocheck.length;i++){
+					ocheck[i].checked=false;
+				}
+			}
+			ochoose3.onclick=function (){
+				for(var i=0;i<ocheck.length;i++){
+					if (ocheck[i].checked==true) {
+						ocheck[i].checked=false;
+					}
+					else{
+						ocheck[i].checked=true;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input id="choose1" type="button" value="全选">
+	<input id="choose2" type="button" value="不选">
+	<input id="choose3" type="button" value="反选">
+	<div id="div1">
+		<input type="checkbox"><br>
+		<input type="checkbox"><br>
+		<input type="checkbox"><br>
+		<input type="checkbox"><br>
+		<input type="checkbox"><br>
+		<input type="checkbox"><br>
+		<input type="checkbox"><br>
+	</div>
+</body>
+
+</html>

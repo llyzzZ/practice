@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>显示隐藏</title>
+</head>
+<style type="text/css">
+	#dive{
+		width: 100px;
+		height: 200px;
+		background:#CCC;
+		display: none;
+	}
+</style>
+<body>
+	<input type="button" value="隐藏显示" onclick="show()">
+	<div id="dive">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var odiv=document.getElementById('dive');
+	function show(){
+		if (odiv.style.display=='block') {
+			odiv.style.display='none';
+		}
+		else{
+			odiv.style.display='block';
+		}
+	}
+</script>
+</html>
